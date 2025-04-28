@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Program</title>
+    <style>
+        @font-face {
+            font-family: 'Audrey-BoldOblique';
+            src: url('Audrey-BoldOblique.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'Audrey-Normal';
+            src: url('Audrey-Normal.otf') format('opentype');
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Audrey-Normal', sans-serif;
+            background-image: url('BRPCpic2.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            transition: background-color 0.3s ease; /* Smooth transition for color change */
+            height: 200%; /* Allow scrolling */
+        }
+
+        /* Navigation Bar (Tabs) */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            font-family: 'Audrey-Normal', sans-serif;
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(0, 0, 255, 0.1); /* Light blue tint on hover */
+        }
+
+        .header {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            text-align: left;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-family: 'Audrey-BoldOblique', sans-serif;
+            font-size: 48px; /* Increased size */
+        }
+
+        .header p {
+            margin: 0;
+            font-family: 'Audrey-Normal', sans-serif;
+            font-size: 24px; /* Increased size */
+        }
+
+        .blue-hue {
+            background-color: rgba(0, 0, 255, 0.1); /* Light blue tint */
+        }
+
+         /* Image Styling */
+         .february-image {
+            margin-top: 200px; /* Buffer from the top */
+            margin-left: 500px; /* Buffer from the left */
+            width: 60%; /* Adjust width as needed */
+            max-width: 4000px; /* Optional: Set a max-width */
+        }
+
+        .weekly-schedule {
+    position: absolute;
+    top: 250px; /* Aligns with the image */
+    left: 50px; /* Positions it to the left of the image */
+    width: 350px; /* Keeps content aligned */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Subtle background */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Audrey-Normal', sans-serif;
+}
+
+.weekly-schedule h2 {
+    margin-top: 0;
+    font-family: 'Audrey-BoldOblique', sans-serif;
+    font-size: 24px;
+}
+
+.weekly-schedule p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.monthly-announcements {
+    position: absolute;
+    top: 450px; /* Positions it below the Weekly Schedule */
+    left: 50px; /* Aligns with the Weekly Schedule */
+    width: 350px; /* Keeps content aligned */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Subtle background */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Audrey-Normal', sans-serif;
+}
+
+.monthly-announcements h2 {
+    margin-top: 0;
+    font-family: 'Audrey-BoldOblique', sans-serif;
+    font-size: 24px;
+}
+
+.monthly-announcements p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.word-of-encouragement {
+    position: absolute;
+    top: 627px; /* Positions it below the Monthly Announcements */
+    left: 50px; /* Aligns with the other sections */
+    width: 350px; /* Keeps content aligned */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Subtle background */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Audrey-Normal', sans-serif;
+}
+
+.word-of-encouragement h2 {
+    margin-top: 0;
+    font-family: 'Audrey-BoldOblique', sans-serif;
+    font-size: 24px;
+}
+
+.word-of-encouragement p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Tabs) -->
+    <div class="navbar">
+        <a href="index1.html">Home</a>
+        <a href="Livestream.html">Livestream</a>
+        <a href="MonthlyProgram.html">Monthly Program</a>
+        <a href="Calendar.html">Calendar</a> <!-- New Calendar Link -->
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <div class="header">
+        <h1>Monthly Program</h1>
+        <p>Stay updated with the BRPC schedule for this month!</p>
+    </div>
+
+    <!-- Special Monthly Announcements Section -->
+<div class="monthly-announcements">
+    <h2>BRPC Special Monthly Announcements:</h2>
+    <p><strong>Cina Domnului -</strong> May 11th</p>
+    <p><strong>Youth Night -</strong> May 25th</p>
+
+</div>
+
+
+    <div>
+        <img src="MayProgram.jpg" alt="May Program" class="february-image">
+    </div>
+
+        <!-- Weekly Schedule Section -->
+        <div class="weekly-schedule">
+            <h2>BRPC Weekly Schedule:</h2>
+            <p><strong>Sunday Morning Service:</strong> 9AM - 12PM</p>
+            <p><strong>Sunday Evening Service:</strong> 6PM - 8PM</p>
+            <p><strong>Tuesday Prayer Service:</strong> 7PM - 9PM</p>
+            <p><strong>Thursday Evening Service:</strong> 7PM - 9PM</p>
+        </div>
+    
+       
+    
+        <!-- Word of Encouragement Section -->
+    <div class="word-of-encouragement">
+        <h2>Word Of Encouragement:</h2>
+        <p><strong>Psalm 20:1-2</strong></p>
+        <p>"May the Lord answer you when you are in</p>
+        <p>distress; may the name of the God of Jacob </p>
+        <p> protect you."</p>
+        
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            // Get the height of the image (background image height is based on the viewport)
+            const imageHeight = window.innerHeight; // Assuming the image covers the full viewport height
+            // Get the current scroll position
+            const scrollPosition = window.scrollY + window.innerHeight;
+
+            // If the user has scrolled past the image's bottom
+            if (scrollPosition > imageHeight) {
+                document.body.classList.add('blue-hue');
+            } else {
+                document.body.classList.remove('blue-hue');
+            }
+        });
+    </script>
+</body>
+</html>
