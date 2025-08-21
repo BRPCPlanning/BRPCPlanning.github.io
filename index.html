@@ -20,7 +20,7 @@
         body {
             margin: 0;
             font-family: 'Audrey-Normal', sans-serif;
-            background-image: url('BRPCpic.jpg');
+            background-image: url('BRPCpic2.JPG');
             background-size: cover;
             background-repeat: no-repeat;
             transition: background-color 0.3s ease;
@@ -30,11 +30,18 @@
             align-items: center;
         }
 
-        /* Navigation Bar */
-        .navbar {
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px 20px;
             position: absolute;
             top: 20px;
             right: 20px;
+            z-index: 20;
+        }
+
+        .navbar {
             display: flex;
             gap: 20px;
         }
@@ -52,7 +59,6 @@
             background-color: rgba(0, 0, 255, 0.1);
         }
 
-        /* Header in Top Left Corner */
         .header {
             position: absolute;
             top: 50px;
@@ -71,11 +77,9 @@
             font-size: 20px;
         }
 
-        /* Slideshow - Positioned Lower */
         .slideshow-container {
-            width: 800px;
-            max-width: 1000px;
-            height: 500px;
+            width: 102vw;
+            aspect-ratio: 16 / 9;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -84,14 +88,14 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            margin-top: 150px; /* Moved it farther down */
+            margin-top: 0px;
+            max-width: 100%;
         }
 
         .slideshow-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
         }
 
         .prev, .next {
@@ -114,7 +118,6 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        /* Grid Layout for Content */
         .content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -125,48 +128,15 @@
             justify-content: center;
         }
 
-        /* Smaller Verse Box */
-        .verse {
+        .verse, .theme-box, .donation, .details {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 15px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
             font-size: 22px;
             line-height: 1.4;
-            max-width: 500px; /* Limited width */
+            max-width: 500px;
             text-align: center;
-            height: 180px;
-        }
-
-        .donation {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    font-size: 22px;
-    line-height: 1.6;
-    max-width: 500px; /* Set a limit like in .verse */
-    text-align: center; /* Optional: center the text */
-    margin-top: 20px;
-}
-
-        .details {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            font-size: 22px;
-            line-height: 1.6;
-            max-width: 100%;
-            align-items: center;
-        }
-
-        .details img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-            margin-top: 10px;
         }
 
         .donation {
@@ -183,29 +153,94 @@
         }
 
         .verse-and-donation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px; /* spacing between verse and donation */
-}
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
 
-        /* Responsive Design */
+        .details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .logo {
+            max-height: 90px;
+            height: auto;
+            width: auto;
+            margin-top: -30px;
+        }
+
+        .top-bar {
+            position: relative;
+            width: 100%;
+            padding: 75px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
+        }
+
+        .bottom-bar {
+            width: 100%;
+            padding: 0px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            font-family: 'Audrey-Normal', sans-serif;
+            margin-top: 50px;
+        }
+
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
             .navbar {
+                display: none;
                 flex-direction: column;
-                align-items: flex-end;
-                gap: 10px;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: rgba(255, 255, 255, 0.95);
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+                z-index: 10;
+            }
+
+            .navbar a {
+                padding: 10px;
+                font-size: 18px;
+                color: black;
+            }
+
+            .navbar.show {
+                display: flex;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 60px 20px;
             }
 
             .header {
                 left: 20px;
                 top: 20px;
+                text-align: left;
+                margin-bottom: 20px;
             }
 
             .slideshow-container {
                 width: 90%;
-                height: 300px;
-                margin-top: 120px; /* Keep spacing on mobile */
+                height: auto;
+                margin-top: 120px;
             }
 
             .content {
@@ -217,74 +252,86 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .verse, .theme-box, .donation, .details {
+                width: 100%;
+                font-size: 18px;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            .donation img {
+                max-width: 80px;
+                margin-top: 10px;
+            }
         }
     </style>
-
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="Livestream.html">Livestream</a>
-        <a href="MonthlyProgram.html">Monthly Program</a>
-        <a href="Calendar.html">Calendar</a> <!-- New Calendar Link -->
-        <a href="#contact">Contact Us</a>
+    <div class="top-bar">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="navbar" id="navbar">
+            <a href="#home">Home</a>
+            <a href="Livestream.html">Livestream</a>
+            <a href="MonthlyProgram.html">Monthly Program</a>
+            <a href="Calendar.html">Calendar</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="header">
+            <img src="churchlogo.png" alt="BRPC Logo" class="logo">
+            <p>Bethel Romanian Pentecostal Church</p>
+        </div>
     </div>
 
-    <!-- Header in Top Left Corner -->
-    <div class="header">
-        <h1>BRPC</h1>
-        <p>Bethel Romanian Pentecostal Church</p>
-    </div>
-
-
-
-    <!-- Slideshow (Lower Position) -->
     <div class="slideshow-container">
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
         <img id="slideshow-image" src="Church1.JPG" alt="Church Image">
         <button class="next" onclick="changeSlide(1)">&#10095;</button>
     </div>
 
-    <!-- Grid Layout -->
     <div class="content">
         <div class="verse-and-donation">
             <div class="verse">
-                <p>
-                    <strong>Salutul bisericii noastre se gaseste la Romani 15:13:</strong><br> <br>
-                    "Dumnezeul nadejdii sa va umple de toata bucuria si pacea pe care o da credinta, 
-                    pentru ca, prin puterea Duhului Sfant, sa fiti tari in nadejde!"
-                </p>
+                <p><strong>Salutul bisericii noastre se gaseste la Romani 15:13:</strong><br><br>
+                "Dumnezeul nadejdii sa va umple de toata bucuria si pacea pe care o da credinta, pentru ca, prin puterea Duhului Sfant, sa fiti tari in nadejde!"</p>
             </div>
-    
+            <div class="theme-box">
+                <p><strong>Theme of the Year:</strong> The Authority of the Bible<br>
+                <em>Luke 24 : 45</em><br>
+                "Then He opened their minds to understand the Scriptures."</p>
+            </div>
             <div class="donation">
                 <p><strong>Interested in donating to support?</strong><br>
-                    We accept etransfers sent to: <strong>give2@gmail.com</strong>
-                </p>
+                We accept etransfers sent to: <strong>give2brpc@gmail.com</strong></p>
                 <img src="interac.webp" alt="Donation icon">
             </div>
         </div>
-    
+
         <div class="details">
             <p>Join us for one of our services at:<br>
-                <strong>5920 Baseline Rd, Windsor ON N0R 1K0</strong>
-            </p>
+            <strong>5920 Baseline Rd, Windsor ON N0R 1K0</strong></p>
             <img src="gmaps.png" alt="Location">
         </div>
     </div>
-    
 
     <script>
         let slideIndex = 1;
         function changeSlide(step) {
             slideIndex += step;
-            if (slideIndex > 10) slideIndex = 1;
-            if (slideIndex < 1) slideIndex = 10;
+            if (slideIndex > 7) slideIndex = 1;
+            if (slideIndex < 1) slideIndex = 7;
             document.getElementById('slideshow-image').src = `Church${slideIndex}.JPG`;
         }
         setInterval(() => { changeSlide(1); }, 3000);
+
+        function toggleMenu() {
+            const nav = document.getElementById("navbar");
+            nav.classList.toggle("show");
+        }
     </script>
 
+    <footer class="bottom-bar">
+        <p>Bethel Romanian Pentecostal Church Windsor</p>
+    </footer>
 </body>
 </html>
