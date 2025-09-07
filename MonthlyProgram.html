@@ -146,66 +146,44 @@ body {
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
-    /* Show hamburger */
-    .hamburger {
+      .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 70px 20px;
+            }
+
+            .header {
+                left: 20px;
+                top: 10px;
+                text-align: left;
+                margin-bottom: 20px;
+                margin-top: 0px;
+            }
+
+      .hamburger {
         display: block;
-    }
+      }
 
-    /* Top Bar adjustments */
-    .top-bar {
-        padding: 50px 20px; /* makes top bar taller */
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    /* Header position */
-    .header {
-        position: relative;
-        top: 0;
-        left: 0;
-        text-align: left;
-        margin-top: -450px;
-    }
-
-
-
-    /* Navbar */
-    .navbar {
+      .navbar {
         display: none;
         flex-direction: column;
-        position: relative;
-        top: 0;
-        right: 0;
-        background-color: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.95);
         border-radius: 10px;
         padding: 10px;
-        box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-        gap: 10px;
         width: 200px;
-    }
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+      }
 
-    .navbar a {
-        font-size: 18px;
+      .navbar a {
         padding: 10px;
-        text-align: center;
-    }
+        font-size: 18px;
+      }
 
-    .navbar.show {
-        display: flex;
+    
     }
-
-    /* Content adjusts to single column */
-    .content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .program-image {
-        margin-top: 20px;
-        height: auto;
-    }
-}
 </style>
 </head>
 <body>
