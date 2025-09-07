@@ -143,80 +143,42 @@ body {
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
-    /* Hamburger menu */
     .hamburger {
         display: block;
-        color: white; /* optional: make it visible on the background */
-        z-index: 15;
     }
 
     .navbar {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px; /* slightly below top bar */
-        right: 0;
-        left: 0; /* full width */
+        top: 60px;
+        right: 20px;
         background-color: rgba(255,255,255,0.95);
-        border-radius: 0; /* full width, remove corners */
+        border-radius: 10px;
         padding: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
         z-index: 10;
     }
 
     .navbar a {
         font-size: 18px;
-        padding: 12px 10px;
-        text-align: center;
+        padding: 10px;
     }
 
     .navbar.show {
         display: flex;
     }
 
-    /* Make top-bar content stack and fit width */
-    .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 60px 10px;
-    }
-
-    .header {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin-bottom: 10px;
-        text-align: left;
-    }
-
-    /* Make content stack */
     .content {
         grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 10px;
-    }
-
-    .left-section {
-        width: 100%;
-        gap: 15px;
-    }
-
-    .card {
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 18px;
+        text-align: center;
     }
 
     .program-image {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-        margin-top: 10px;
-        border-radius: 10px;
+        margin-top: 20px;
+          height: auto;
     }
 }
-
 </style>
 </head>
 <body>
