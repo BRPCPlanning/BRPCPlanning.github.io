@@ -30,6 +30,19 @@
             align-items: center;
         }
 
+        /* --- Top Bar and Navbar Styling (Unified) --- */
+        .top-bar {
+            position: relative;
+            width: 100%;
+            padding: 75px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
+            z-index: 10;
+        }
+
         .hamburger {
             display: none;
             font-size: 28px;
@@ -42,8 +55,12 @@
         }
 
         .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             display: flex;
             gap: 20px;
+            z-index: 10;
         }
 
         .navbar a {
@@ -59,24 +76,34 @@
             background-color: rgba(0, 0, 255, 0.1);
         }
 
+        .navbar.show {
+            display: flex !important;
+        }
+
         .header {
             position: absolute;
-            top: 50px;
-            left: 50px;
+            top: 15px;
+            left: 40px;
             text-align: left;
         }
 
-        .header h1 {
+        .header h1, .header p {
             margin: 0;
             font-family: 'Audrey-BoldOblique', sans-serif;
-            font-size: 48px;
         }
 
         .header p {
-            margin: 0;
-            font-size: 20px;
+            font-size: 24px;
+            font-family: 'Audrey-Normal', sans-serif;
         }
 
+        .logo {
+            max-height: 90px;
+            height: auto;
+            width: auto;
+        }
+
+        /* --- Slideshow Styling --- */
         .slideshow-container {
             width: 102vw;
             aspect-ratio: 16 / 9;
@@ -118,6 +145,7 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
+        /* --- Content Boxes --- */
         .content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -167,35 +195,19 @@
             margin-top: 10px;
         }
 
-        .logo {
-            max-height: 90px;
-            height: auto;
-            width: auto;
-            margin-top: -30px;
-        }
-
-        .top-bar {
-            position: relative;
-            width: 100%;
-            padding: 75px 20px;
-            background-color: rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            z-index: 10;
-        }
-
+        /* --- Footer --- */
         .bottom-bar {
             width: 100%;
-            padding: 0px 20px;
+            padding: 10px 20px;
             background-color: rgba(0, 0, 0, 0.5);
             text-align: center;
             color: white;
             font-size: 15px;
             font-family: 'Audrey-Normal', sans-serif;
-            margin-top: 50px;
+            margin-top: auto;
         }
 
+        /* --- Mobile --- */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -217,7 +229,6 @@
             .navbar a {
                 padding: 10px;
                 font-size: 18px;
-                color: black;
             }
 
             .navbar.show {
@@ -235,6 +246,7 @@
                 top: 20px;
                 text-align: left;
                 margin-bottom: 20px;
+                margin-top: 50px;
             }
 
             .slideshow-container {

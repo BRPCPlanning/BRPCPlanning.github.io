@@ -15,14 +15,16 @@
       src: url('Audrey-Normal.otf') format('opentype');
     }
 
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
+      display: flex;
+      flex-direction: column;
       font-family: 'Audrey-Normal', sans-serif;
       background-image: url('BRPCpic2.JPG');
       background-size: cover;
       background-repeat: no-repeat;
       transition: background-color 0.3s ease;
-      min-height: 100vh;
     }
 
     .top-bar {
@@ -76,7 +78,7 @@
 
     .header {
       position: absolute;
-      top: 80px;
+      top: 40px;
       left: 40px;
       text-align: left;
     }
@@ -93,6 +95,7 @@
     }
 
     .content {
+      flex: 1; /* pushes footer down if content is small */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -130,7 +133,7 @@
       color: white;
       font-size: 15px;
       font-family: 'Audrey-Normal', sans-serif;
-      margin-top: 50px;
+      margin-top: auto; /* keeps it at bottom */
     }
 
     .blue-hue {
@@ -229,31 +232,30 @@
 
   <!-- YouTube API Livestream Checker -->
   <script>
-  const apiKey = "AIzaSyAKiJJN4lBnGt41NN6HZO59Qq2ksn4QR8M"; // Replace with your API key
-  const channelId = "UCa-C65z0_BTVzE6e9pZSaAA"; // Your channel ID
-  const liveContainer = document.getElementById('live-container');
+    const apiKey = "AIzaSyAKiJJN4lBnGt41NN6HZO59Qq2ksn4QR8M"; // Replace with your API key
+    const channelId = "UCa-C65z0_BTVzE6e9pZSaAA"; // Replace with your channel ID
+    const liveContainer = document.getElementById('live-container');
 
-  fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&eventType=live&key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.items && data.items.length > 0) {
-        const videoId = data.items[0].id.videoId;
-        liveContainer.innerHTML = `
-          <iframe width="100%" height="100%" 
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-          </iframe>`;
-      } else {
-        liveContainer.innerHTML = `
-          <p>There is no live stream at the moment. Please check back later.</p>`;
-      }
-    })
-    .catch(error => {
-      console.error('YouTube API Error:', error);
-      liveContainer.innerHTML = '<p>Error loading live stream. Please try again later.</p>';
-    });
-</script>
-
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&eventType=live&key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.items && data.items.length > 0) {
+          const videoId = data.items[0].id.videoId;
+          liveContainer.innerHTML = `
+            <iframe width="100%" height="100%" 
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>`;
+        } else {
+          liveContainer.innerHTML = `
+            <p>There is no live stream at the moment. Please check back later.</p>`;
+        }
+      })
+      .catch(error => {
+        console.error('YouTube API Error:', error);
+        liveContainer.innerHTML = '<p>Error loading live stream. Please try again later.</p>';
+      });
+  </script>
 
   <!-- Footer -->
   <footer class="bottom-bar">

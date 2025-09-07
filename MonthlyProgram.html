@@ -15,14 +15,26 @@
             src: url('Audrey-Normal.otf') format('opentype');
         }
 
+        /* Make body a flex container */
         body {
             margin: 0;
+            min-height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
             font-family: 'Audrey-Normal', sans-serif;
             background-image: url('BRPCpic2.JPG');
-            background-size: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             background-repeat: no-repeat;
-            transition: background-color 0.3s ease; /* Smooth transition for color change */
-            height: 250%; /* Allow scrolling */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Content grows and pushes footer down */
+        .content {
+            flex: 1; /* Take all available space */
+            position: relative;
+            padding-bottom: 50px; /* Prevent content overlap with footer */
         }
 
         /* Navigation Bar (Tabs) */
@@ -45,164 +57,136 @@
         }
 
         .navbar a:hover {
-            background-color: rgba(0, 0, 255, 0.1); /* Light blue tint on hover */
+            background-color: rgba(0, 0, 255, 0.1);
         }
 
         .header {
             position: absolute;
-            top: 50px;
-            left: 50px;
+            top: 40px;
+            left: 40px;
             text-align: left;
         }
 
         .header h1 {
             margin: 0;
             font-family: 'Audrey-BoldOblique', sans-serif;
-            font-size: 48px; /* Increased size */
+            font-size: 48px;
         }
 
         .header p {
             margin: 0;
             font-family: 'Audrey-Normal', sans-serif;
-            font-size: 24px; /* Increased size */
+            font-size: 24px;
         }
 
         .blue-hue {
-            background-color: rgba(0, 0, 255, 0.1); /* Light blue tint */
+            background-color: rgba(0, 0, 255, 0.1);
         }
 
-         /* Image Styling */
-         .february-image {
-            margin-top: 50px; /* Buffer from the top */
-            margin-left: 500px; /* Buffer from the left */
-            width: 62%; /* Adjust width as needed */
-            max-width: 4000px; /* Optional: Set a max-width */
+        /* Image Styling */
+        .february-image {
+            margin-top: 50px;
+            margin-left: 500px;
+            width: 62%;
+            max-width: 4000px;
+        }
+
+        /* Sections on the left */
+        .weekly-schedule,
+        .monthly-announcements,
+        .word-of-encouragement {
+            position: absolute;
+            left: 50px;
+            width: 350px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Audrey-Normal', sans-serif;
         }
 
         .weekly-schedule {
-    position: absolute;
-    top: 200px; /* Aligns with the image */
-    left: 50px; /* Positions it to the left of the image */
-    width: 350px; /* Keeps content aligned */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Subtle background */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Audrey-Normal', sans-serif;
-}
+            top: 200px;
+        }
 
-.weekly-schedule h2 {
-    margin-top: 0;
-    font-family: 'Audrey-BoldOblique', sans-serif;
-    font-size: 24px;
-}
+        .monthly-announcements {
+            top: 400px;
+        }
 
-.weekly-schedule p {
-    margin: 5px 0;
-    font-size: 18px;
-}
+        .word-of-encouragement {
+            top: 577px;
+        }
 
-.monthly-announcements {
-    position: absolute;
-    top: 400px; /* Positions it below the Weekly Schedule */
-    left: 50px; /* Aligns with the Weekly Schedule */
-    width: 350px; /* Keeps content aligned */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Subtle background */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Audrey-Normal', sans-serif;
-}
+        .weekly-schedule h2,
+        .monthly-announcements h2,
+        .word-of-encouragement h2 {
+            margin-top: 0;
+            font-family: 'Audrey-BoldOblique', sans-serif;
+            font-size: 24px;
+        }
 
-.monthly-announcements h2 {
-    margin-top: 0;
-    font-family: 'Audrey-BoldOblique', sans-serif;
-    font-size: 24px;
-}
+        .weekly-schedule p,
+        .monthly-announcements p,
+        .word-of-encouragement p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
 
-.monthly-announcements p {
-    margin: 5px 0;
-    font-size: 18px;
-}
+        /* Top bar */
+        .top-bar {
+            position: relative;
+            width: 100%;
+            padding: 75px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
+        }
 
-.word-of-encouragement {
-    position: absolute;
-    top: 577px; /* Positions it below the Monthly Announcements */
-    left: 50px; /* Aligns with the other sections */
-    width: 350px; /* Keeps content aligned */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Subtle background */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Audrey-Normal', sans-serif;
-}
-
-.word-of-encouragement h2 {
-    margin-top: 0;
-    font-family: 'Audrey-BoldOblique', sans-serif;
-    font-size: 24px;
-}
-
-.word-of-encouragement p {
-    margin: 5px 0;
-    font-size: 18px;
-}
-.top-bar {
-    position: relative;
-    width: 100%;
-    padding: 75px 20px;
-    background-color: rgba(0, 0, 0, 0.2); /* dark semi-transparent */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    z-index: 10;
-}
-
-.bottom-bar {
-    width: 100%;
-    padding: 1px 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Same transparency as .top-bar */
-    text-align: center;
-    color: white;
-    font-size: 15px;
-    font-family: 'Audrey-Normal', sans-serif;
-    margin-top: 50px; 
-}
-
+        /* Footer stays at bottom */
+        .bottom-bar {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            font-family: 'Audrey-Normal', sans-serif;
+        }
     </style>
 </head>
 <body>
-     <!-- Top Section Wrapper -->
-    <div class="top-bar">
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="Livestream.html">Livestream</a>
-            <a href="#home">Monthly Program</a>
-            <a href="Calendar.html">Calendar</a>
-            <a href="contact.html">Contact Us</a>
+    <div class="content">
+        <!-- Top Section Wrapper -->
+        <div class="top-bar">
+            <!-- Navigation Bar -->
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                <a href="Livestream.html">Livestream</a>
+                <a href="#home">Monthly Program</a>
+                <a href="Calendar.html">Calendar</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <!-- Header in Top Left Corner -->
+            <div class="header">
+                <h1>Monthly Program</h1>
+                <p>Stay updated with the BRPC schedule for this month!</p>
+            </div>
         </div>
 
-        <!-- Header in Top Left Corner -->
-        <div class="header">
-            <h1>Monthly Program</h1>
-        <p>Stay updated with the BRPC schedule for this month!</p>
+        <!-- Special Monthly Announcements Section -->
+        <div class="monthly-announcements">
+            <h2>BRPC Special Monthly Announcements:</h2>
+            <p><strong>Cina Domnului -</strong> May 11th</p>
+            <p><strong>Youth Night -</strong> May 25th</p>
         </div>
-    </div>
 
-
-    <!-- Special Monthly Announcements Section -->
-<div class="monthly-announcements">
-    <h2>BRPC Special Monthly Announcements:</h2>
-    <p><strong>Cina Domnului -</strong> May 11th</p>
-    <p><strong>Youth Night -</strong> May 25th</p>
-
-</div>
-
-
-    <div>
-        <img src="June2025.JPG" alt="June Program" class="february-image">
-    </div>
+        <!-- Program Image -->
+        <div>
+            <img src="June2025.JPG" alt="June Program" class="february-image">
+        </div>
 
         <!-- Weekly Schedule Section -->
         <div class="weekly-schedule">
@@ -212,31 +196,30 @@
             <p><strong>Tuesday Prayer Service:</strong> 7PM - 9PM</p>
             <p><strong>Thursday Evening Service:</strong> 7PM - 9PM</p>
         </div>
-    
-       
-    
+
         <!-- Word of Encouragement Section -->
-    <div class="word-of-encouragement">
-        <h2>Word Of Encouragement:</h2>
-        <p><strong>Psalm 92:13-15</strong></p>
-        <p>"They are planted in the house of the</p>
-        <p>LORD; they flourish in the courts of our </p>
-        <p>God. Thet still bear fruit in old age; </p>
-        <p>they are ever full of sap and green, </p>
-        <p>to declare that the LORD is upright; </p>
-        <p>He is my rock, and there is no </p>
-        <p>unrighteousnessin Him "</p>
-        
+        <div class="word-of-encouragement">
+            <h2>Word Of Encouragement:</h2>
+            <p><strong>Psalm 92:13-15</strong></p>
+            <p>"They are planted in the house of the</p>
+            <p>LORD; they flourish in the courts of our </p>
+            <p>God. They still bear fruit in old age; </p>
+            <p>they are ever full of sap and green, </p>
+            <p>to declare that the LORD is upright; </p>
+            <p>He is my rock, and there is no </p>
+            <p>unrighteousness in Him "</p>
+        </div>
     </div>
+
+    <!-- Footer always at bottom -->
+    <footer class="bottom-bar">
+        <p>Bethel Romanian Pentecostal Church Windsor</p>
+    </footer>
 
     <script>
         window.addEventListener('scroll', function() {
-            // Get the height of the image (background image height is based on the viewport)
-            const imageHeight = window.innerHeight; // Assuming the image covers the full viewport height
-            // Get the current scroll position
+            const imageHeight = window.innerHeight;
             const scrollPosition = window.scrollY + window.innerHeight;
-
-            // If the user has scrolled past the image's bottom
             if (scrollPosition > imageHeight) {
                 document.body.classList.add('blue-hue');
             } else {
@@ -245,8 +228,4 @@
         });
     </script>
 </body>
-
-<footer class="bottom-bar">
-        <p>Bethel Romanian Pentecostal Church Windsor</p>
-    </footer>
 </html>
