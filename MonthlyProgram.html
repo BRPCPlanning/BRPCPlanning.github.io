@@ -15,29 +15,31 @@
             src: url('Audrey-Normal.otf') format('opentype');
         }
 
-        /* Make body a flex container */
         body {
             margin: 0;
-            min-height: 100vh; /* Full viewport height */
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; /* Stack content vertically */
+            flex-direction: column;
             font-family: 'Audrey-Normal', sans-serif;
             background-image: url('BRPCpic2.JPG');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            transition: background-color 0.3s ease;
         }
 
-        /* Content grows and pushes footer down */
-        .content {
-            flex: 1; /* Take all available space */
+        /* Top bar stays original */
+        .top-bar {
             position: relative;
-            padding-bottom: 50px; /* Prevent content overlap with footer */
+            width: 100%;
+            padding: 75px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
         }
 
-        /* Navigation Bar (Tabs) */
         .navbar {
             position: absolute;
             top: 20px;
@@ -79,72 +81,62 @@
             font-size: 24px;
         }
 
-        .blue-hue {
-            background-color: rgba(0, 0, 255, 0.1);
-        }
-
-        /* Image Styling */
-        .february-image {
-            margin-top: 50px;
-            margin-left: 500px;
-            width: 62%;
-            max-width: 4000px;
-        }
-
-        /* Sections on the left */
-        .weekly-schedule,
-        .monthly-announcements,
-        .word-of-encouragement {
+        /* Hamburger for mobile */
+        .hamburger {
+            display: none;
             position: absolute;
-            left: 50px;
-            width: 350px;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Content area */
+        .content {
+            flex: 1;
             padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
             background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            font-family: 'Audrey-Normal', sans-serif;
         }
 
-        .weekly-schedule {
-            top: 200px;
-        }
-
-        .monthly-announcements {
-            top: 400px;
-        }
-
-        .word-of-encouragement {
-            top: 577px;
-        }
-
-        .weekly-schedule h2,
-        .monthly-announcements h2,
-        .word-of-encouragement h2 {
+        .card h2 {
             margin-top: 0;
             font-family: 'Audrey-BoldOblique', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
         }
 
-        .weekly-schedule p,
-        .monthly-announcements p,
-        .word-of-encouragement p {
+        .card p {
             margin: 5px 0;
             font-size: 18px;
         }
 
-        /* Top bar */
-        .top-bar {
-            position: relative;
+        .program-image {
             width: 100%;
-            padding: 75px 20px;
-            background-color: rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            z-index: 10;
+            border-radius: 10px;
+            max-height: 700px;
+            object-fit: contain;
         }
 
-        /* Footer stays at bottom */
+        /* Footer */
         .bottom-bar {
             width: 100%;
             padding: 10px 20px;
@@ -152,80 +144,97 @@
             text-align: center;
             color: white;
             font-size: 15px;
-            font-family: 'Audrey-Normal', sans-serif;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .program-image {
+                margin-top: 20px;
+            }
+
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: rgba(255, 255, 255, 0.95);
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .navbar a {
+                font-size: 18px;
+                padding: 10px;
+            }
+
+            .navbar.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <!-- Top Section Wrapper -->
-        <div class="top-bar">
-            <!-- Navigation Bar -->
-            <div class="navbar">
-                <a href="index.html">Home</a>
-                <a href="Livestream.html">Livestream</a>
-                <a href="#home">Monthly Program</a>
-                <a href="Calendar.html">Calendar</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
-
-            <!-- Header in Top Left Corner -->
-            <div class="header">
-                <h1>Monthly Program</h1>
-                <p>Stay updated with the BRPC schedule for this month!</p>
-            </div>
+    <div class="top-bar">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="navbar" id="navbar">
+            <a href="index.html">Home</a>
+            <a href="Livestream.html">Livestream</a>
+            <a href="#">Monthly Program</a>
+            <a href="Calendar.html">Calendar</a>
+            <a href="contact.html">Contact Us</a>
         </div>
-
-        <!-- Special Monthly Announcements Section -->
-        <div class="monthly-announcements">
-            <h2>BRPC Special Monthly Announcements:</h2>
-            <p><strong>Cina Domnului -</strong> May 11th</p>
-            <p><strong>Youth Night -</strong> May 25th</p>
-        </div>
-
-        <!-- Program Image -->
-        <div>
-            <img src="June2025.JPG" alt="June Program" class="february-image">
-        </div>
-
-        <!-- Weekly Schedule Section -->
-        <div class="weekly-schedule">
-            <h2>BRPC Weekly Schedule:</h2>
-            <p><strong>Sunday Morning Service:</strong> 9AM - 12PM</p>
-            <p><strong>Sunday Evening Service:</strong> 6PM - 8PM</p>
-            <p><strong>Tuesday Prayer Service:</strong> 7PM - 9PM</p>
-            <p><strong>Thursday Evening Service:</strong> 7PM - 9PM</p>
-        </div>
-
-        <!-- Word of Encouragement Section -->
-        <div class="word-of-encouragement">
-            <h2>Word Of Encouragement:</h2>
-            <p><strong>Psalm 92:13-15</strong></p>
-            <p>"They are planted in the house of the</p>
-            <p>LORD; they flourish in the courts of our </p>
-            <p>God. They still bear fruit in old age; </p>
-            <p>they are ever full of sap and green, </p>
-            <p>to declare that the LORD is upright; </p>
-            <p>He is my rock, and there is no </p>
-            <p>unrighteousness in Him "</p>
+        <div class="header">
+            <h1>Monthly Program</h1>
+            <p>Stay updated with the BRPC schedule for this month!</p>
         </div>
     </div>
 
-    <!-- Footer always at bottom -->
+    <div class="content">
+        <div class="left-section">
+            <div class="card">
+                <h2>BRPC Special Monthly Announcements:</h2>
+                <p><strong>Cina Domnului -</strong> May 11th</p>
+                <p><strong>Youth Night -</strong> May 25th</p>
+            </div>
+
+            <div class="card">
+                <h2>BRPC Weekly Schedule:</h2>
+                <p><strong>Sunday Morning Service:</strong> 9AM - 12PM</p>
+                <p><strong>Sunday Evening Service:</strong> 6PM - 8PM</p>
+                <p><strong>Tuesday Prayer Service:</strong> 7PM - 9PM</p>
+                <p><strong>Thursday Evening Service:</strong> 7PM - 9PM</p>
+            </div>
+
+            <div class="card">
+                <h2>Word Of Encouragement:</h2>
+                <p><strong>Psalm 92:13-15</strong></p>
+                <p>"They are planted in the house of the LORD; they flourish in the courts of our God. They still bear fruit in old age; they are ever full of sap and green, to declare that the LORD is upright; He is my rock, and there is no unrighteousness in Him."</p>
+            </div>
+        </div>
+
+        <div>
+            <img src="June2025.JPG" alt="June Program" class="program-image">
+        </div>
+    </div>
+
     <footer class="bottom-bar">
         <p>Bethel Romanian Pentecostal Church Windsor</p>
     </footer>
 
     <script>
-        window.addEventListener('scroll', function() {
-            const imageHeight = window.innerHeight;
-            const scrollPosition = window.scrollY + window.innerHeight;
-            if (scrollPosition > imageHeight) {
-                document.body.classList.add('blue-hue');
-            } else {
-                document.body.classList.remove('blue-hue');
-            }
-        });
+        function toggleMenu() {
+            document.getElementById("navbar").classList.toggle("show");
+        }
     </script>
 </body>
 </html>
